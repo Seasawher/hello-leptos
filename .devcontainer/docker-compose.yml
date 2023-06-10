@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  leptos-devcontainer:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    image: leptos
+    container_name: leptos_devcontainer
+    volumes:
+      - type: bind
+        source: ..
+        target: /workspace
+    command: trunk serve --open
+    ports:
+      - 8080:8080
